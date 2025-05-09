@@ -1,0 +1,41 @@
+# College Baseball Trackman Data Pipeline
+
+This project automates a data ingestion pipeline for NCAA Division 1 Trackman data, transferring CSVs from a remote FTP server and uploading cleaned data to a SQL database. The pipeline was built specifically to support a D1 Baseball program and their analytics department. Scripts are designed to handle Trackman play by play data and follow a specific structure but can be tweaked to support a general FTP -> SQL DB data pipeline. 
+
+## Project Structure
+
+UCSB-DataPipeline/
+├── Scripts/
+│ ├── ftp_csv_downloader.py 
+│ └── csv_to_sql_uploader.py 
+├── .env.example
+├── README.md
+└── requirements.txt
+
+## Features
+
+- Secure FTPS connection to Trackman FTP server
+- Dynamic daily folder structure (YYYY/MM/DD)
+- Cleans data, converts types, adds unique row ID
+- Batch uploads to Azure SQL database using SQLAlchemy
+- Logging of script progress and errors
+
+## Scripts
+
+- `ftp_csv_downloader.py` — downloads CSV files from a remote FTP server based on yesterday's date.
+- `csv_to_sql_uploader.py` — processes and uploads cleaned CSV data to an Azure SQL database.
+
+## Requirements
+- Python 3.8+
+- Azure SQL Server or local SQL Server instance
+- ODBC Driver 17 for SQL Server
+
+## Notes
+- Both scripts dynamically pull from the previous day's folder.
+- Ideal to be run daily via cronjob or other task scheduler
+- Logging output is saved with timestamped filenames.
+
+## License
+This project is open for educational and portfolio purposes. Modify freely.
+
+

@@ -42,4 +42,8 @@ crontab -e
 ## License
 This project is open for educational and portfolio purposes. Modify freely.
 
+## Data & Privacy
+This repository does not contain any proprietary or sensitive Trackman data. Scripts are designed to operate on general CSV inputs and the database schema is intentionally abstracted to comply with data use agreements.
+
+
 
